@@ -1,0 +1,247 @@
+/* ==========================================================
+   Keshav Bang - Resume Website
+   Theme: a Himalayan trek at dawn.
+   Night sky for the dark areas, snow for the page,
+   pine green for links and sunrise gold for highlights.
+   ========================================================== */
+
+/* ---------- 1. Colour palette and fonts (CSS variables) ---------- */
+:root {
+  --night:   #1b2733;   /* dark navy, nav and hero */
+  --snow:    #f5f8fa;   /* page background */
+  --glacier: #dce6ec;   /* soft blue-grey, borders and chips */
+  --pine:    #2e5e4e;   /* green, links and headings accent */
+  --sunrise: #e3a72f;   /* gold, highlights */
+  --text:    #26323d;   /* body text */
+
+  --font-heading: "Newsreader", Georgia, serif;
+  --font-body: "Work Sans", Arial, sans-serif;
+}
+
+/* ---------- 2. Element selectors: base styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;   /* stops the sticky nav from covering section titles */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--snow);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin: 0;
+}
+
+a {
+  color: var(--pine);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 3. Navigation bar (flexbox + sticky positioning) ---------- */
+.navbar {
+  position: sticky;      /* stays at the top while scrolling */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  background-color: var(--night);
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--snow);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--glacier);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--sunrise);
+  border-bottom-color: var(--sunrise);
+}
+
+/* ---------- 4. Hero section ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 4rem 2rem;
+  background-color: var(--night);
+  color: var(--snow);
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--sunrise);
+  background-color: var(--glacier);   /* shows until photo.jpg is added */
+}
+
+.hero h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.tagline {
+  margin: 0.6rem 0 0;
+  font-size: 1.15rem;
+  color: var(--glacier);
+}
+
+/* Chessboard strip: a repeating black and white pattern */
+.board-strip {
+  height: 24px;
+  background: repeating-conic-gradient(var(--night) 0% 25%, var(--snow) 0% 50%) 0 0 / 48px 48px;
+}
+
+/* ---------- 5. Main content layout ---------- */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+section {
+  margin-top: 3rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--night);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--sunrise);
+  display: inline-block;
+}
+
+/* ---------- 6. Cards (class selectors) ---------- */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.card {
+  flex: 1 1 260px;
+  background-color: #ffffff;
+  border: 1px solid var(--glacier);
+  border-left: 6px solid var(--pine);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  color: var(--pine);
+}
+
+.card p {
+  margin: 0.3rem 0 0;
+}
+
+.contact-card {
+  font-style: normal;   /* <address> is italic by default */
+}
+
+.contact-card p {
+  margin: 0.4rem 0;
+}
+
+/* ---------- 7. Hobby chips ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.chips li {
+  padding: 0.5rem 1.3rem;
+  background-color: var(--glacier);
+  color: var(--night);
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+.chips li:hover {
+  background-color: var(--sunrise);
+}
+
+/* ---------- 8. ID selector: make the contact card stand out ---------- */
+#contact .card {
+  border-left-color: var(--sunrise);
+}
+
+/* ---------- 9. Footer (element selector) ---------- */
+footer {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--night);
+  color: var(--glacier);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- 10. Responsive design for phones ---------- */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  html {
+    scroll-padding-top: 110px;
+  }
+}
